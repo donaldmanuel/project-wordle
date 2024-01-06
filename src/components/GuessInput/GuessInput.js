@@ -1,6 +1,6 @@
 import React from 'react'
 
-function GuessInput({ addGuess }) {
+function GuessInput({ addGuess, gameStatus }) {
   const [guess, setGuess] = React.useState('')
 
   function handleGuess(event) {
@@ -15,6 +15,7 @@ function GuessInput({ addGuess }) {
       <label htmlFor='guess-input'>Enter guess:</label>
       <input
         required
+        disabled={gameStatus !== 'running'}
         autoComplete='off'
         minLength={5}
         maxLength={5}
